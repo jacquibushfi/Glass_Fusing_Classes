@@ -1,8 +1,7 @@
 # GlassFusingClasses
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Glass_Fusing_Classes`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby project provides a CLI to list and get details of the current classes from the Bullseye Glass website.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 

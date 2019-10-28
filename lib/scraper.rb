@@ -16,7 +16,9 @@ class Scraper
   def self.scrape_klass_details(klass)
     html = open("#{klass.link}")
     doc = Nokogiri::HTML(html)
+
     binding.pry
+
     klass.price = doc.css("span.price").text
     klass.description = doc.css("div.std p").text
 

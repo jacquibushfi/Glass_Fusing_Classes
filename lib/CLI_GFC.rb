@@ -16,6 +16,7 @@ class CLI
      input.to_i.between?(1, Klass.count)
       klass_input = Klass.all[input.to_i - 1]
       Scraper.scrape_klass_details(klass_input) if !klass_input.title
+      binding.pry
       #display_klass_details(kd)
       puts " "
       puts "#{klass_input.title}"

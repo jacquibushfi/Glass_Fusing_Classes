@@ -1,8 +1,14 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/CLI_GFC"
+require "nokogiri"
+require "open-uri"
+require "pry"
 
-run
+require_relative "../lib/CLI_GFC"
+require_relative "../lib/klass"
+require_relative "../lib/scraper"
+
+CLI.new.run
 # require "bundler/setup"
 # require "Glass_Fusing_Classes"
 #

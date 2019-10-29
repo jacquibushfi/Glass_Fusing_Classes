@@ -1,6 +1,6 @@
 class Klass
 
-  attr_accessor :title, :link, :description, :price #list out the other elements
+  attr_accessor :title, :link, :description, :price, :date, :location, :daytimes, :prequisites, :availability #list out the other elements
   @@all = []
 
   def initialize

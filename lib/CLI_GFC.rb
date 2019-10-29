@@ -1,6 +1,7 @@
 
 
 class CLI
+  attr_reader :input
 
   def run
     puts "          Welcome to the Bullseye Class Listing"
@@ -12,52 +13,34 @@ class CLI
   menu
   input = gets.strip.downcase
 
-  while input != 'exit' do
-     input.to_i.between?(1, Klass.count)
-      klass_input = Klass.all[input.to_i - 1]
-      Scraper.scrape_klass_details(klass_input) if !klass_input.title
-      binding.pry
-      #display_klass_details(kd)
-      puts " "
-      puts "#{klass_input.title}"
-      puts " "
-      puts "#{klass_input.description}"
-      puts " "
-      puts "#{klass_input.price}"
-      puts " "
-      puts "Enter 'list' to see the list, a class number, or 'exit' to exit"
-      input = gets.strip.downcase
-    # elsif input == "list"
-    #   menu
-    #     input = gets.strip.downcase
-    # else
-    #   puts "Please enter a valid selection"
-    #   menu
-    #     input = gets.strip.downcase
-    end
-    "Goodbye"
+   while input != 'exit'  do
+  #   elsif input.to_i.between?(1, Klass.count)
+       klass = Klass.all[input.to_i - 1]
+       Scraper.scrape_klass_details(klass)   # if !klass.title
+        binding.pry
+       display_klass_details(klass)
+       puts " "
+       puts "Enter 'list' to see the list, a class number, or 'exit' to exit"
+       input = gets.strip.downcase
+   end
+    puts "Goodbye"
   end
 
-    def display_klass_details(kd)
+    def display_klass_details(klass)
       puts " "
-      puts "#{kd.title}"
+      puts "#{klass.title}"
       puts " "
-      puts "#{kd.description}"
+      puts "#{klass.description}"
       puts " "
-      puts "#{kd.price}"
-      puts "Enter 'list' to see the list, a class number, or 'exit' to exit"
+      puts "#{klass.price}"
     end
 
   def menu
-    display_klasses
+      Klass.all.each.with_index(1) do |klass, index|
+      puts "#{index}. #{klass.title}"
+    end
     puts " "
     puts "Please Select the number of a class to see more information,  type 'list' to see the list again, or  'exit' to exit"
-    end
-
-  def display_klasses
-    Klass.all.each.with_index(1) do |klass, index|
-    puts "#{index}. #{klass.title}"
-    end
   end
 
 end

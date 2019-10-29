@@ -31,7 +31,7 @@ class CLI
         end
     end
       puts " "
-      puts "Goodbye!"
+      puts "Have a Great Day and many Happy Glass Projects!"
   end
 
   def display_klass_details(klass)

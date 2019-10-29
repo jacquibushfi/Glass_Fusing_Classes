@@ -1,4 +1,5 @@
 
+
 class Scraper
 
   def self.scrape_klasses
@@ -24,11 +25,11 @@ class Scraper
   def self.scrape_klass_details(klass)
     html = open("#{klass.link}")
     doc = Nokogiri::HTML(html)
-    klass.price = doc.css("span.price").text
-    klass.description = doc.css("div.std p")[0].text
-    klass.daytimes = doc.css("div.std p")[1].text
-    klass.prequisites = doc.css("div.std p")[3].text
-    klass.availability = doc.css("div.extra-info p").text.strip
+    klass.price = doc.css("span.price").text.scan(/[^\$]*\$[^\$]*/)[0]
+    klass.description = doc.css("div.std p")[2].text
+    klass.daytimes = doc.css("div.std p")[1].text.insert(11, ":  ")
+    klass.notes = doc.css("div.std p")[3].text
+    klass.availability = doc.css("div.extra-info p").text.strip.gsub(/\s+/, " ")
     klass
    end
 end

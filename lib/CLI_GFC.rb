@@ -16,8 +16,7 @@ class CLI
    while input != 'exit'  do
   #   elsif input.to_i.between?(1, Klass.count)
        klass = Klass.all[input.to_i - 1]
-       Scraper.scrape_klass_details(klass)   # if !klass.title
-        binding.pry
+       Scraper.scrape_klass_details(klass) #if !klass.title
        display_klass_details(klass)
        puts " "
        puts "Enter 'list' to see the list, a class number, or 'exit' to exit"
@@ -27,18 +26,19 @@ class CLI
   end
 
     def display_klass_details(klass)
+      puts "------------------------------------------------------------------------------------------------------------------------"
       puts " "
       puts "#{klass.title}"
+      puts "#{klass.daytimes}      Price: #{klass.price}      #{klass.availability} "
       puts " "
       puts "#{klass.description}"
-      puts " "
-      puts "#{klass.price}"
-    end
+      puts "#{klass.notes}"
+   end
 
   def menu
       Klass.all.each.with_index(1) do |klass, index|
-      puts "#{index}. #{klass.title}"
-    end
+        puts "#{index}. #{klass.title}"
+      end
     puts " "
     puts "Please Select the number of a class to see more information,  type 'list' to see the list again, or  'exit' to exit"
   end

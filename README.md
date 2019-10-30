@@ -5,15 +5,15 @@ This Ruby project provides a CLI to scrape a website and gather more information
 
 ## Installation
 
+require "nokogiri"
+require "open-uri"
 
+git@github.com:jacquibushfi/Glass_Fusing_Classes.git
 
 
 ## Usage
 
-ruby /bin/GlassFusingClasses
-
-
-## Development
+ ruby /bin/GlassFusingClasses
 
 
 ## Contributing

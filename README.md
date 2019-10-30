@@ -1,6 +1,6 @@
 # GlassFusingClasses
 
-This Ruby project provides a CLI to list and get details of the current classes from the Bullseye Glass website.  This project returns the classes from the first page.
+This Ruby project provides a CLI to scrape a website and gather more information based on a users response.  Bullseye's Glass Classes will be scraped to return the first page of current classes. A class number can then be entered to see the details concerning the class.
 
 
 ## Installation
@@ -10,6 +10,7 @@ This Ruby project provides a CLI to list and get details of the current classes 
 
 ## Usage
 
+ruby /bin/GlassFusingClasses
 
 
 ## Development
@@ -21,7 +22,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'sagac
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+ Is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 

@@ -33,7 +33,10 @@ class CLI
       puts " "
       puts " "
       puts " "
-      puts "Thank You for visiting and may you always have happy kiln surprises!!"   # entered exit
+      puts "Thank You for visiting and may you always have happy kiln surprises!!" # entered exit
+      puts " "
+      puts " "
+      puts " "
   end
 
   def menu

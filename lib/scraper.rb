@@ -1,14 +1,14 @@
 class Scraper
 
-  def self.scrape_klasses
+  def self.scrape_klasses  # initial scrape method, creates klass instances
     html = open("https://classes.bullseyeglass.com/classes-events.html")
     doc = Nokogiri::HTML(html)
 
     doc.css("div.category-products").css("li.item.last").each do |item|
-      split_title = []
       klass = Klass.new
       klass.title  = item.css(".product-name a[title]").text.strip
       klass.link  = item.css("a").attribute("href").value
+      split_title = []
       split_title = klass.title.split(",")
         if split_title[1].include? "with"  # split up the data in the title just in case it is needed later
           klass.location = split_title[2].strip
@@ -20,7 +20,7 @@ class Scraper
     end
   end
 
-  def self.scrape_klass_details(klass)
+  def self.scrape_klass_details(klass)  # secondary scrape method to retrieve the klass details based on the menu selection
     html = open("#{klass.link}")
     doc = Nokogiri::HTML(html)
     klass.price = doc.css("span.price").text.scan(/[^\$]*\$[^\$]*/)[0]  # parsed out to remove double entries for price

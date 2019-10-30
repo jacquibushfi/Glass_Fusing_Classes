@@ -1,24 +1,5 @@
 #!/usr/bin/env ruby
 
-require "nokogiri"
-require "open-uri"
-require "pry"
-
-require_relative "../lib/CLI_GFC"
-require_relative "../lib/klass"
-require_relative "../lib/scraper"
+require_relative "../lib/Glass_Fusing_Classes"
 
 CLI.new.run
-# require "bundler/setup"
-# require "Glass_Fusing_Classes"
-#
-
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
-
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
-
-# require "irb"
-# IRB.start(__FILE__)

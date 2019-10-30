@@ -31,6 +31,8 @@ class CLI
         end
     end
       puts " "
+      puts " "
+      puts " "
       puts "Thank You for visiting and may you always have happy kiln surprises!!"   # entered exit
   end
 
@@ -44,7 +46,7 @@ class CLI
   def selector_text
     puts " "
     puts "Please enter a class number to see the class details (1 - #{Klass.all.count} ),  'list' to see the list again, or  'exit' to exit"
-    puts "-----------------------------------------------------------------------------------------------------------------"
+    puts "---------------------------------------------------------------------------------------------------------------------------------"
   end
 
   def display_klass_details(klass)

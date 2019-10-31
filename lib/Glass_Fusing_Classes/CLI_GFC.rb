@@ -18,7 +18,7 @@ class CLI
       case
       when input.to_i.between?(1, Klass.all.count)
           klass = Klass.all[input.to_i - 1]
-          Scraper.scrape_klass_details(klass) if !klass.description  # second scrape to revtieve the class details if they do not already exist
+          Scraper.assign_data(klass) if !klass.description  # second scrape to revtieve the class details if they do not already exist
           display_klass_details(klass)
           input = gets.strip.downcase
         when input == "list"   # display the list again

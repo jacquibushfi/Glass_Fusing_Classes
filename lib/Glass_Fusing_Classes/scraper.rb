@@ -21,14 +21,31 @@ class Scraper
     end
   end
 
-  def self.scrape_klass_details(klass)  # secondary scrape method to retrieve the klass details based on the menu selection
-    html = open("#{klass.link}")
+  def self.scrape_klass_details(url)  # secondary scrape method to retrieve the klass details based on the menu selection
+    html = open(url)
     doc  = Nokogiri::HTML(html)
-    klass.price        = doc.css("span.price").text.scan(/[^\$]*\$[^\$]*/)[0]  # parsed out to remove double entries for price
-    klass.description  = doc.css("div.std p")[2].text
-    klass.daytimes     = doc.css("div.std p")[1].text.insert(11, ":  ")  # formatting the data provided from the webpage
-    klass.notes        = doc.css("div.std p")[3].text
-    klass.availability = doc.css("div.extra-info p").text.strip.gsub(/\s+/, " ")  # parsed out extra spaces and new line
+   
+    {
+      :price        => doc.css("span.price").text.scan(/[^\$]*\$[^\$]*/)[0],  # parsed out to remove double entries for price
+      :description  => doc.css("div.std p")[2].text,
+      :daytimes     => doc.css("div.std p")[1].text.insert(11, ":  "),  # formatting the data provided from the webpage
+      :notes        => doc.css("div.std p")[3].text,
+      :availability => doc.css("div.extra-info p").text.strip.gsub(/\s+/, " ")  # parsed out extra spaces and new line
+    }
+
+  end
+
+  def self.assign_data(klass)
+    hash = scrape_klass_details(klass.link)
+
+    klass.price        = hash[:price] 
+    klass.description  = hash[:description]
+    klass.daytimes     = hash[:daytimes]
+    klass.notes        = hash[:notes]
+    klass.availability = hash[:availability] 
     klass
   end
+
 end
+
+
